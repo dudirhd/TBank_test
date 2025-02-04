@@ -128,7 +128,7 @@ function App() {
             className="tinkoffPayRow"
             type="hidden"
             name="terminalkey"
-            value="1736757221136DEMO"
+            value="1736757221136"
           />
           <input
             className="tinkoffPayRow"
