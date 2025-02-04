@@ -1,12 +1,10 @@
 import './main-back-container.scss';
 
-import BackButton from '../back-button/back-button';
-
 import MainContainer from '../main-container/main-container';
 import { IMainBackContainer } from './main-back-container.typings';
 
 const MainBackContainer = (props: IMainBackContainer) => {
-  const { size, navigation } = props;
+  const { size } = props;
 
   const className = (size: string) => {
     if (size === 's') {
@@ -21,8 +19,6 @@ const MainBackContainer = (props: IMainBackContainer) => {
   return (
     <MainContainer>
       <div className={`MainBackContainer ${className(size)}`}>
-        <BackButton navigation={navigation} />
-
         {props.children}
       </div>
     </MainContainer>
