@@ -92,6 +92,7 @@ function App() {
     };
 
     try {
+      //Инициализация виджета из указанного раздела
       //@ts-ignore
       window.initPayments(widgetParameters);
     } catch (error) {
@@ -186,9 +187,11 @@ function App() {
             name="receipt"
             value=""
           />
+          {/* Это кнопка, о которой вы говорили */}
           <input className="tinkoffPayRow" type="submit" value="Оплатить" />
         </form>
 
+        {/* Контейнер виджета из указанного вами раздела */}
         <div id="tinkoffWidgetContainer"></div>
       </MainBackContainer>
     </div>
