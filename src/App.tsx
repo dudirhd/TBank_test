@@ -189,7 +189,7 @@ function App() {
           <input className="tinkoffPayRow" type="submit" value="Оплатить" />
         </form>
 
-        {/* <div id="tinkoffWidgetContainer"></div> */}
+        <div id="tinkoffWidgetContainer"></div>
       </MainBackContainer>
     </div>
   );
