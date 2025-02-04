@@ -1,0 +1,78 @@
+.input-login-wrapper {
+  position: relative;
+
+  input {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    max-height: 52px;
+    padding: 24px 44px 8px 16px;
+
+    font-size: 1.25rem;
+    font-weight: 1rem;
+    line-height: 500;
+
+    border: none;
+    background: #f3f4f6;
+    border-radius: 12px;
+    width: 100%;
+  }
+
+  input:focus-visible {
+    outline: 0;
+    background: #e7e8ea;
+  }
+
+  input:focus-visible ~ .input-login-heading {
+    top: 16px;
+
+    font-size: 0.75rem;
+    font-weight: 1rem;
+    line-height: 500;
+
+    transition: linear 0.2s;
+  }
+
+  .input-login-heading {
+    position: absolute;
+    color: #aaaeb3;
+
+    font-size: 1.25rem;
+    font-weight: 1rem;
+    line-height: 500;
+
+    pointer-events: none;
+    top: 26px;
+    left: 16px;
+    transition: linear 0.2s;
+  }
+
+  .error {
+    background: rgb(234 51 51 / 10%);
+  }
+
+  .input-login-icon {
+    position: absolute;
+    right: 18.28px;
+    bottom: 18px;
+    cursor: pointer;
+
+    &:hover {
+      fill: #3f4347;
+    }
+  }
+
+  .active {
+    top: 16px;
+
+    font-size: 0.75rem;
+    font-weight: 1rem;
+    line-height: 500;
+    color: #aaaeb3;
+
+    transition: linear 0.2s;
+  }
+}
+
+.rdrDayToday .rdrDayNumber span::after {
+  background-color: #c8235a !important;
+}

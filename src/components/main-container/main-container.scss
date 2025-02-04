@@ -1,0 +1,13 @@
+.main-container {
+  width: 704px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-self: center;
+}
+
+@media (max-width: 750px) {
+  .main-container {
+    width: 95%;
+  }
+}

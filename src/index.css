@@ -1,0 +1,21 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Raleway, sans-serif;
+  font-variant-numeric: lining-nums;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  width: fit-content;
+}
+
+ul {
+  list-style: none;
+}
+
+:root {
+  height: 100vh;
+}

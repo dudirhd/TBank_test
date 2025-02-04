@@ -1,0 +1,45 @@
+.Payment-Heading {
+  padding: 8px 0;
+}
+
+.Payment-Balance {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 12px 0;
+  p {
+    color: grey;
+  }
+}
+
+.Payment-Buttos-Container {
+  display: flex;
+  padding: 8px 0;
+  gap: 8px;
+  position: relative;
+  flex-wrap: nowrap;
+  overflow: auto;
+  button {
+    padding: 6px 16px;
+    border: none;
+
+    border-radius: 28px;
+    text-wrap: nowrap;
+  }
+}
+
+p {
+  height: 100px;
+}
+
+.container {
+  width: 768px;
+  height: 100%;
+  padding: 24px 16px 0;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}

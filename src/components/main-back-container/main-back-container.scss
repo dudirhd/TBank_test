@@ -1,0 +1,34 @@
+.MainBackContainer {
+  width: 390px;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 0;
+  &_l {
+    width: 540px;
+  }
+  &_m {
+    width: 390px;
+  }
+  &_s {
+    width: 360px;
+  }
+}
+
+@media (max-width: 580px) {
+  .MainBackContainer_l {
+    width: 95%;
+  }
+}
+
+@media (max-width: 420px) {
+  .MainBackContainer_m {
+    width: 95%;
+  }
+}
+
+@media (max-width: 400px) {
+  .MainBackContainer_s {
+    width: 95%;
+  }
+}

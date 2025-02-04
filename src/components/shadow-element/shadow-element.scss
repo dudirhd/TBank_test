@@ -1,0 +1,12 @@
+.shadow-element {
+  padding: 16px;
+  box-shadow: 0 0 24px rgb(98, 108, 119, 16%);
+  border-radius: 16px;
+
+  &-hover {
+    cursor: pointer;
+    &:hover {
+      box-shadow: 0 0 24px rgb(82, 92, 104, 0.24);
+    }
+  }
+}
