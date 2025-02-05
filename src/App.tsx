@@ -1,11 +1,11 @@
-import { ChangeEvent, useEffect, useState } from 'react';
-import './App.scss';
-import MainBackContainer from './components/main-back-container/main-back-container';
-import { InputLogin } from './components/input-login/input-login';
-import ShadowElement from './components/shadow-element/shadow-element';
+import { ChangeEvent, useEffect, useState } from "react";
+import "./App.scss";
+import MainBackContainer from "./components/main-back-container/main-back-container";
+import { InputLogin } from "./components/input-login/input-login";
+import ShadowElement from "./components/shadow-element/shadow-element";
 
 function App() {
-  const [amount, setAmount] = useState('');
+  const [amount, setAmount] = useState("");
 
   const onChangeAmount = (e: ChangeEvent<HTMLInputElement>) => {
     const newData = e.target.value;
@@ -16,20 +16,20 @@ function App() {
 
   //добавление скриптов
   useEffect(() => {
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
     link.href =
-      'https://securepay.tinkoff.ru/html/payForm/static/css/t-widget.css';
+      "https://securepay.tinkoff.ru/html/payForm/static/css/t-widget.css";
     document.head.appendChild(link);
 
-    const script = document.createElement('script');
-    script.src = 'https://securepay.tinkoff.ru/html/payForm/js/tinkoff.js';
+    const script = document.createElement("script");
+    script.src = "https://securepay.tinkoff.ru/html/payForm/js/tinkoff.js";
     script.async = true;
     script.onload = () => {
-      console.log('Tinkoff Pay script loaded');
+      console.log("Tinkoff Pay script loaded");
     };
     script.onerror = () => {
-      console.error('Error loading Tinkoff Pay script');
+      console.error("Error loading Tinkoff Pay script");
     };
     document.body.appendChild(script);
 
@@ -44,7 +44,7 @@ function App() {
     event.preventDefault();
     const form = event.currentTarget;
 
-    console.log('Form data:', {
+    console.log("Form data:", {
       terminalKey: form.terminalkey.value,
       amount: form.amount.value,
       email: form.email.value,
@@ -52,23 +52,29 @@ function App() {
       description: form.description.value,
     });
 
+    const container = document.getElementById("tinkoffWidgetContainer");
+    if (!container) {
+      console.error("Container for Tinkoff widget not found");
+      return;
+    }
+
     // Данные для чека
-    Object.defineProperty(form.receipt, 'value', {
+    Object.defineProperty(form.receipt, "value", {
       get: function () {
         return JSON.stringify({
           Email: form.email.value,
           Phone: form.phone.value,
-          EmailCompany: 'mail@mail.com',
-          Taxation: 'patent',
+          EmailCompany: "mail@mail.com",
+          Taxation: "patent",
           Items: [
             {
-              Name: form.description.value || 'Оплата',
-              Price: form.amount.value + '00',
+              Name: form.description.value || "Оплата",
+              Price: form.amount.value + "00",
               Quantity: 1.0,
-              Amount: form.amount.value + '00',
-              PaymentMethod: 'full_prepayment',
-              PaymentObject: 'service',
-              Tax: 'none',
+              Amount: form.amount.value + "00",
+              PaymentMethod: "full_prepayment",
+              PaymentObject: "service",
+              Tax: "none",
             },
           ],
         });
@@ -77,32 +83,37 @@ function App() {
 
     // Инициализация виджета
     const widgetParameters = {
-      container: document.getElementById('tinkoffWidgetContainer'),
+      container: container,
       terminalKey: form.terminalkey.value,
       paymentSystems: {
         TinkoffPay: {
           paymentInfo: function () {
             return {
-              infoEmail: 'mailmail@mail.ru',
+              infoEmail: "mailmail@mail.ru",
               paymentData: form,
             };
           },
         },
       },
     };
-
-    try {
-      //Инициализация виджета из указанного раздела
-      //@ts-ignore
-      window.initPayments(widgetParameters);
-    } catch (error) {
-      console.error('Error initializing Tinkoff Pay:', error);
+    //@ts-ignore
+    if (typeof window.initPayments === "function") {
+      console.log("initPayments function exists");
+      try {
+        //@ts-ignore
+        window.initPayments(widgetParameters);
+        console.log("initPayments was called successfully");
+      } catch (error) {
+        console.error("Error initializing Tinkoff Pay:", error);
+      }
+    } else {
+      console.error("initPayments function does not exist");
     }
   };
 
   return (
     <div className="container">
-      <MainBackContainer size={'m'}>
+      <MainBackContainer size={"m"}>
         <h1 className="Payment-Heading">
           Пополнение баланса <br />с банковской карты
         </h1>
@@ -113,7 +124,7 @@ function App() {
         <InputLogin
           text="Номер договора"
           type="text"
-          value={'№ ' + '2132131'}
+          value={"№ " + "2132131"}
           disabled={true}
         />
         <InputLogin
